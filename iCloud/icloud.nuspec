@@ -1,33 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
-    <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
-    <id>icloud</id>
-    <title>iCloud (Install)</title>
-    <version>__REPLACE__</version>
-    <authors>__REPLACE_AUTHORS_OF_SOFTWARE_COMMA_SEPARATED__</authors>
-    <owners>__REPLACE_YOUR_NAME__</owners>
-    <summary>__REPLACE__</summary>
-    <description>__REPLACE__MarkDown_Okay 
+    <id>iCloud</id>
+    <title>iCloud</title>
+    <version>5.2</version>
+    <authors>LJ0</authors>
+    <owners>Apple Inc.</owners>
+    <licenseUrl>http://www.apple.com/legal/terms/site.html</licenseUrl>
+    <projectUrl>http://www.apple.com/itunes</projectUrl>
+    <summary>iCloud for Windows</summary>
+    <description>Installs iCloud services to Windows PC. This includes iCloud Drive, PhotoSync, Outlook and Browser sync.
     </description>
-    <projectUrl></projectUrl>
-    <packageSourceUrl></packageSourceUrl>
-    <!--<projectSourceUrl></projectSourceUrl>
-    <docsUrl></docsUrl>
-    <mailingListUrl></mailingListUrl>
-    <bugTrackerUrl></bugTrackerUrl>-->
-    <tags>icloud admin SPACE_SEPARATED</tags>
-    <copyright></copyright>
-    <licenseUrl></licenseUrl>
+    <packageSourceUrl>https://github.com/ljferdinand/ChocolateyiCloud</packageSourceUrl>
+
+    <tags>icloud apple</tags>
+    <copyright>Apple Inc. All rights reserved.</copyright>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <!--<iconUrl>http://cdn.rawgit.com/__REPLACE_YOUR_REPO__/master/icons/icloud.png</iconUrl>-->
-    <!--<dependencies>
-      <dependency id="" version="__VERSION__" />
-      <dependency id="" />
-    </dependencies>-->
-    <releaseNotes>__REPLACE_OR_REMOVE__MarkDown_Okay</releaseNotes>
-    <!--<provides></provides>-->
+    <iconUrl>http://cdn.rawgit.com/ChocolateyiCloud/master/icons/icloud.png</iconUrl>
+
+    <releaseNotes>Initial Release</releaseNotes>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
