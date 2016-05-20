@@ -12,7 +12,7 @@ $downloadTempDir = Join-Path $toolsDir 'download-temp'
  
 $app = Get-WmiObject -Class Win32_Product | Where-Object {$_.Name -match 'iCloud'}
  
-# Check if the same version of iTunes is already installed
+# Check if the same version of icloud is already installed
 if ($app -and ([version]$app.Version -ge [version]$version)) {
   Write-Output $(
     'iCloud ' + $version + ' or higher is already installed. ' +
@@ -36,7 +36,7 @@ if ($app -and ([version]$app.Version -ge [version]$version)) {
                 }).Name
         }
 
-        # Loop over each file and install it. iTunes requires all of them to be installed
+        # Loop over each file and install it. icloud requires all of them to be installed
         foreach ($msiFileName in $msiFilesList) {
         Install-ChocolateyInstallPackage -packageName $msiFileName -fileType $fileType `
         -silentArgs $silentArgs -file (Join-Path $downloadTempDir $msiFileName) `
