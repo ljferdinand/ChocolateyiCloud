@@ -5,12 +5,11 @@ $url64bit = 'http://download.info.apple.com/Mac_OS_X/031-31851-20160428-5490DFC6
 $fileType = 'msi'
 $silentArgs = '/qn /norestart'
 $validExitCodes = @(0,1603, 3010)
-$x64 = Test-Path C:\windows\syswow64
 $rebootrequired 
 $toolsDir = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $downloadTempDir = Join-Path $toolsDir 'download-temp'
- 
-$app = Get-WmiObject -Class Win32_Product | Where-Object {$_.Name -match 'iCloud'}
+
+[array]$app = Get-UninstallRegistryKey -SoftwareName $packageName
  
 # Check if the same version of icloud is already installed
 if ($app -and ([version]$app.Version -ge [version]$version)) {
@@ -22,14 +21,12 @@ if ($app -and ([version]$app.Version -ge [version]$version)) {
         Install-ChocolateyZipPackage -packageName $packageName -url $url `
         -url64bit $url64bit -unzipLocation $downloadTempDir
  
-        if ($x64 -eq "True") {
-            Write-Host "extracting 64-bit installers"
+        if (Get-ProcessorBits 64) {
             $msiFilesList = (Get-ChildItem -Path $downloadTempDir -Filter '*.msi' | Where-Object {
                 $_.Name -notmatch 'AppleSoftwareUpdate*.msi'
             }).Name
         }
         else {
-            Write-Host "extracting 32-bit installers"
             erase $downloadTempDir\*64.msi -force
             $msiFilesList = (Get-ChildItem -Path $downloadTempDir -Filter '*.msi' | Where-Object {
                 $_.Name -notmatch 'AppleSoftwareUpdate*.msi'
@@ -43,10 +40,9 @@ if ($app -and ([version]$app.Version -ge [version]$version)) {
         -validExitCodes $validExitCodes
         }
 
-    Remove-Item $downloadTempDir -Recurse
+    if (Test-Path $downloadTempDir) {Remove-Item $downloadTempDir -Recurse}
 
     if ($rebootrequired) {
-        Write-Host "Reboot Required"
         exit 3010
     }
     
