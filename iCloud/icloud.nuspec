@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>iCloud</id>
-    <title>iCloud</title>
+    <title>Apple iCloud</title>
     <version>5.2</version>
     <authors>Apple Inc.</authors>
     <owners>LJ0</owners>
@@ -13,13 +13,13 @@
     </description>
     <packageSourceUrl>https://github.com/ljferdinand/ChocolateyiCloud</packageSourceUrl>
 	<docsUrl>https://www.apple.com/support/icloud/</docsUrl>
-    <tags>icloud apple</tags>
+    <tags>icloud apple admin</tags>
     <copyright>Apple Inc. All rights reserved.</copyright>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <iconUrl>https://cdn.rawgit.com/dtgm/chocolatey-packages/ceae8718cf017584376139205fe33f8038c0cc1d/icons/icloud.png</iconUrl>
     <releaseNotes>Initial Release</releaseNotes>
 	<dependencies>
-		<dependency id="chocolatey-uninstall.extension" />
+		<dependency id="chocolatey-uninstall.extension" version="(,1.0]" />
 	</dependencies>
   </metadata>
   <files>
