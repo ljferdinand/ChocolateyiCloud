@@ -1,13 +1,14 @@
 ﻿$packageName = 'iCloud'
-$version = '5.2.1'
-$url = 'http://download.info.apple.com/Mac_OS_X/031-64889-20160718-E85BB333-494F-11E6-A444-EFCFCF9F5A9B/iCloudSetup.exe'
-$url64bit = 'http://download.info.apple.com/Mac_OS_X/031-64889-20160718-E85BB333-494F-11E6-A444-EFCFCF9F5A9B/iCloudSetup.exe'
+$version = '6.0.1.41'
+$url = 'http://download.info.apple.com/Mac_OS_X/031-45723-20160920-9D35D6D4-7AB5-11E6-893D-D61934D2D062/iCloudSetup.exe'
+$url64bit = 'http://download.info.apple.com/Mac_OS_X/031-45723-20160920-9D35D6D4-7AB5-11E6-893D-D61934D2D062/iCloudSetup.exe'
 $fileType = 'msi'
 $silentArgs = '/qn /norestart'
 $validExitCodes = @(0,1603, 3010)
 $rebootrequired 
 $toolsDir = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $downloadTempDir = Join-Path $toolsDir 'download-temp'
+$checksum = '369255F470099210A0ACDE279F7A02CE1E002D55B5F83873887F81700E46DB17'
 
 [array]$app = Get-UninstallRegistryKey -SoftwareName $packageName
  
@@ -19,7 +20,8 @@ if ($app -and ([version]$app.Version -ge [version]$version)) {
   )
 } else {
         Install-ChocolateyZipPackage -packageName $packageName -url $url `
-        -url64bit $url64bit -unzipLocation $downloadTempDir
+        -url64bit $url64bit -unzipLocation $downloadTempDir `
+		-checksum $checksum -checksumType 'sha256'
  
         if (Get-ProcessorBits 64) {
             $msiFilesList = (Get-ChildItem -Path $downloadTempDir -Filter '*.msi' | Where-Object {
