@@ -1,7 +1,7 @@
 ﻿$packageName = 'iCloud'
-$version = '6.1.0.30'
-$url = 'http://download.info.apple.com/Mac_OS_X/031-81759-20161202-09D1C032-B72E-11E6-908C-C01AE47229E1/iCloudSetup.exe'
-$url64bit = 'http://download.info.apple.com/Mac_OS_X/031-81759-20161202-09D1C032-B72E-11E6-908C-C01AE47229E1/iCloudSetup.exe'
+$version = '6.0.1.41'
+$url = 'http://download.info.apple.com/Mac_OS_X/031-45723-20160920-9D35D6D4-7AB5-11E6-893D-D61934D2D062/iCloudSetup.exe'
+$url64bit = 'http://download.info.apple.com/Mac_OS_X/031-45723-20160920-9D35D6D4-7AB5-11E6-893D-D61934D2D062/iCloudSetup.exe'
 $fileType = 'msi'
 $silentArgs = '/qn /norestart'
 $validExitCodes = @(0,1603, 3010)
