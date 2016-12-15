@@ -7,12 +7,12 @@ $silentArgs = '/qn /norestart'
 $validExitCodes = @(0,1603, 3010)
 $toolsDir = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $downloadTempDir = Join-Path $toolsDir 'download-temp'
-$checksum = '369255F470099210A0ACDE279F7A02CE1E002D55B5F83873887F81700E46DB17'
+$checksum = '2F9522FB147CA06EFF565D78EB5DC75FC1DE761D27501F72384A98A2C85A6856'
 
-[array]$app = Get-UninstallRegistryKey -SoftwareName $packageName
+[array]$app = Get-UninstallRegistryKey -SoftwareName $packageName 
  
 # Check if the same version of icloud is already installed
-if ($app -and ([version]$app.Version -ge [version]$version)) {
+if ($app -and ([version]$app.DisplayVersion -ge [version]$version)) {
   Write-Output $(
     'iCloud ' + $version + ' or higher is already installed. ' +
     'No need to download and install again.'
