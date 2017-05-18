@@ -1,13 +1,13 @@
 ﻿$packageName = 'iCloud'
-$version = '6.2.2.39'
-$url = 'http://download.info.apple.com/Mac_OS_X/031-99154-20170515-6BD4AA20-34EB-11E7-AFE0-2BDC8FB7FE33/iCloudSetup.exe'
-$url64bit = 'http://download.info.apple.com/Mac_OS_X/031-99154-20170515-6BD4AA20-34EB-11E7-AFE0-2BDC8FB7FE33/iCloudSetup.exe'
+$version = '6.2.1.67'
+$url = 'http://download.info.apple.com/Mac_OS_X/031-70272-20170323-C23F530C-0FC4-11E7-9BB6-C22700A0ED6C/iCloudSetup.exe'
+$url64bit = 'http://download.info.apple.com/Mac_OS_X/031-70272-20170323-C23F530C-0FC4-11E7-9BB6-C22700A0ED6C/iCloudSetup.exe'
 $fileType = 'msi'
 $silentArgs = '/qn /norestart'
 $validExitCodes = @(0,1603, 3010)
 $toolsDir = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $downloadTempDir = Join-Path $toolsDir 'download-temp'
-$checksum = 'E83FFAFF1F3EF98748D6C461247DAF5DBAA75569363FF70556A8120D5B14029D'
+$checksum = 'E522EDB649346A05F944055F6BD8B1B6D1330F8389DD54B3649A883659CDA2CF'
 
 [array]$app = Get-UninstallRegistryKey -SoftwareName $packageName 
  
